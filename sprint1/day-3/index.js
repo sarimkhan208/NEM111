@@ -1,5 +1,5 @@
-// const isEven = require("is-even")
-// console.log(isEven(5))
+const isEven = require("is-even")
+console.log(isEven(5))
 
 
 const fs = require("fs")
@@ -21,3 +21,14 @@ fs.writeFile("./text.txt",'superman',(err)=>{
         console.log("filee written successfully")
     }
 })
+
+
+
+fs.appendFile("./text.txt",'DC',(err)=>{
+    if(err){
+        console.log(err)
+    }else{
+        console.log("filee append successfully")
+    }
+})
+
