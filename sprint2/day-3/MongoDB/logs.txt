@@ -1,0 +1,9 @@
+Route :  /contact Method : GET
+Route :  /data Method : GET
+Route :  / Method : GET
+Route :  / Method : GET
+Route :  /name=roman Method : GET
+Route :  /?name=roman Method : GET
+Route :  /data/?name=roman Method : GET
+Route :  /data/?name=roman Method : GET
+Route :  /contact/5 Method : GET
