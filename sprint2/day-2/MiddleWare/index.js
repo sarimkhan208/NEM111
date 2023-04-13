@@ -1,14 +1,15 @@
 const express = require("express")
+const fs = require("fs")
 const app = express()
+const {timeLogger} = require("./timeLogger")
+const {logger} = require("./logger")
 
-app.use((req,res,next)=>{
-    console.log("Hello from MW@")
-    next()
-})
+app.use(timeLogger)
+app.use(logger)
 
 app.get("/",(req,res)=>{
     console.log("Home page")
-    res.send("home page")
+    res.send("ho")
 })
 
 app.get("/about",(req,res)=>{
@@ -22,9 +23,9 @@ app.get("/contact",(req,res)=>{
 })
 
 app.get("/data",(req,res)=>{
-    console.log("data page")
-    res.send("data page")
+    const data = fs.readFileSync("./db.json","utf-8")
+    res.send(data)
 })
 
 
-app.listen(4500)
+app.listen(5500)
