@@ -1,0 +1,7 @@
+{
+  "students": [],
+  "instructors": [
+    { "emp_id": 1, "name": "Aman", "sub": "DSA", "experience": 3 },
+    { "emp_id": 1, "name": "Aman", "sub": "DSA", "experience": 3 }
+  ]
+}
