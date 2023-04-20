@@ -3,6 +3,7 @@ const mongoose = require("mongoose")
 
 const connection = mongoose.connect(process.env.mongoURL)
 
+
 const userSchema = mongoose.Schema({
     name:{type:String,required:true},
     age:{type:Number,required:true},
