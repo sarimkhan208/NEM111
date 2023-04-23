@@ -74,7 +74,7 @@ app.delete("/deleteUser/:id",async (req,res)=>{
 })
 
 
-app.listen(4500, async ()=>{
+app.listen(5500, async ()=>{
     try{
         await connection
         console.log("Connected to DB")
