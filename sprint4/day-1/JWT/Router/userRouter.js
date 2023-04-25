@@ -1,4 +1,5 @@
 const express = require("express")
+var jwt = require('jsonwebtoken');
 const { UserModel } = require("../model/user.model")
 const userRouter = express.Router()
 
@@ -25,7 +26,8 @@ userRouter.post("/login",async (req,res)=>{
     try{
         const user = await UserModel.findOne({email,pass})
         if(user){
-            res.status(200).send({"msg":"Login Successfull"})
+            var token = jwt.sign({ course: 'backend' }, 'masai');
+            res.status(200).send({"msg":"Login Successfull","token":token})
         }else{
             res.status(200).send({"msg":"Wrong Credentials"})
         }

@@ -1,5 +1,6 @@
 const express = require("express")
 const  connection  = require("./db")
+var jwt = require('jsonwebtoken');
 const userRouter = require("./Router/userRouter")
 const app = express()
 
@@ -18,7 +19,14 @@ app.get("/about",(req,res)=>{
 
 // Protecrted Routes
 app.get("/movie",(req,res)=>{
-    res.send("home page")
+    const {token} = req.query
+    jwt.verify(token, 'masai', function(err, decoded) {
+        if(decoded){
+            res.status(200).send({"msg":"Movie Data"})
+        }else{
+            res.status(200).send({"msg":"Pls Login first"})
+        }
+      });
 })
 
 app.get("/series",(req,res)=>{
