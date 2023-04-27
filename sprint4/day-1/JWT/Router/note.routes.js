@@ -13,15 +13,35 @@ noteRouter.post("/create",async (req,res)=>{
 
 })
 
-noteRouter.get("/",(req,res)=>{
+noteRouter.get("/",async(req,res)=>{
+    try{
+        const notes = await NoteModel.find()
+        res.status(200).send({"Notes":notes})
+    }catch(err){
+        res.status(400).send({"err":err.message})
+    }
     
 })
 
-noteRouter.patch("/update",(req,res)=>{
+noteRouter.patch("/update/:id",async (req,res)=>{
+    const {id} = req.params
+    try{
+        await NoteModel.findByIdAndUpdate({_id:id},req.body)
+        res.status(200).send({"msg":"Notes has beeen updated"})
+    }catch(err){
+        res.status(400).send({"err":err.message})
+    }
     
 })
 
-noteRouter.delete("/delete",(req,res)=>{
+noteRouter.delete("/delete/:id",async (req,res)=>{
+    const {id} = req.params
+    try{
+        await NoteModel.findByIdAndDelete({_id:id})
+        res.status(200).send({"msg":"Notes has beeen Deleted"})
+    }catch(err){
+        res.status(400).send({"err":err.message})
+    }
     
 })
 

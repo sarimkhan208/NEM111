@@ -16,13 +16,9 @@ app.use("/user",userRouter)
 // Protected Routes
 app.use(auth)
 app.use("/note",noteRouter)
-app.get("/movie",(req,res)=>{
-    res.status(200).send({"msg":"Movie Data"})
-})
 
-app.get("/series",(req,res)=>{
-    res.status(200).send({"msg":"Series Data"})
-})
+
+
 // {
 
 //     "title":"DC",
