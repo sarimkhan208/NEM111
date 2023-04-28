@@ -3,6 +3,7 @@ const NoteModel = require("../model/note.model")
 const noteRouter = express.Router()
 
 noteRouter.post("/create",async (req,res)=>{
+    console.log(req.body,"create note")
     try{
         const note = new NoteModel(req.body)
         await note.save()

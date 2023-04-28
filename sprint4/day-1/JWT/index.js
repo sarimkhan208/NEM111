@@ -19,16 +19,6 @@ app.use("/note",noteRouter)
 
 
 
-// {
-
-//     "title":"DC",
-//     "body":"dfge charger",
-//     "author":"dc",
-//     "category":"dog"
-
-   
-// }
-
 app.listen(8080,async()=>{
     try{
         await connection

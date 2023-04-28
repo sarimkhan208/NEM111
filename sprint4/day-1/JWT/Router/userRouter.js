@@ -35,10 +35,11 @@ userRouter.post("/login",async (req,res)=>{
     const {email,pass} = req.body;
     try{
         const user = await UserModel.findOne({email})
+        console.log(user,"user")
         bcrypt.compare(pass, user.pass, function(err, result) {
             // result == true
             if(result){
-                var token = jwt.sign({ course: 'backend' }, 'masai');
+                var token = jwt.sign({ author: user.name,authorID:user._id }, 'masai');
                 res.status(200).send({"msg":"Login Successfull","token":token})
             }else{
                 res.status(200).send({"msg":"Wrong Credentials"})

@@ -6,6 +6,10 @@ const auth = async (req,res,next)=>{
         try{
             const decoded = jwt.verify(token.split(" ")[1],"masai")
             if(decoded){
+                req.body.authorID = decoded.authorID
+                req.body.author = decoded.author
+                console.log(decoded,"decoded")
+                console.log(req.body,"Body")
                 next()
             }else{
                 res.send({"msg":"Pls Login!!!"})
